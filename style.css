@@ -7,17 +7,10 @@
 body {
   font-family: "ROBOTO", sans-serif;
    overflow-y: hidden;
+   background-color: #1e1f26;
 }
 
-#seccion{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  position: relative; 
-  text-align: center; 
-}
+ 
 
 .nav,
 .slider {

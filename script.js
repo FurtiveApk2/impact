@@ -17,13 +17,13 @@ fetch('https://serviciosfur.glitch.me/datos')
 
 $('body').on('focus', 'input', function () {
   $(this).parent().addClass('focus'); 
-  document.getElementById("seccion").style.top = "12rem";
+  document.getElementById("tab-svelte").style.top = "6rem";
 });
 
 $('body').on('blur', 'input', function () {
   if (!$(this).val().length > 0) {
     $(this).parent().removeClass('focus');
-    document.getElementById("seccion").style.top = "0rem";
+    document.getElementById("tab-svelte").style.top = "0rem";
   }
 });
 
