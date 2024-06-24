@@ -26,7 +26,7 @@ $('body').on('blur', 'input', function () {
 });
 
 $(document).ready(function () {
-  checkVisit();
+  
   
   $('#continuar').on('click', function () {
     document.getElementById("barraCarga").style.display = "block";
@@ -227,7 +227,7 @@ function checkVisit() {
 
 
 window.onload = function () {
-
+checkVisit();
   Particles.init({
     selector: ".background"
   });
