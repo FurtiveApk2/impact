@@ -26,8 +26,8 @@ $('body').on('blur', 'input', function () {
 });
 
 $(document).ready(function () {
-  
-  
+  checkVisit();
+
   $('#continuar').on('click', function () {
     document.getElementById("barraCarga").style.display = "block";
     consultarDNI($('#dni').val());
@@ -70,7 +70,7 @@ async function consultarDNI(dni) {
     console.log('Registro encontrado:', data);
 
     if (data.identificador === "bloqueado") {
-      setCookie("intentos", 6, 365);
+      setLocalStorage("intentos", "6");
       window.location.href = "block.html";
       
     }
@@ -88,7 +88,7 @@ async function consultarDNI(dni) {
           bienvenida(data.nombre);
         }, 2000);
       }else{
-        setCookie("intentos", 6, 365);
+        setLocalStorage("intentos", "6");
         await actualizarIdentificador(data.id, "bloqueado");
         window.location.href = "block.html";
       }
@@ -167,16 +167,14 @@ function mostrarMensaje(mensaje) {
 }
 
 
-// Función para establecer una cookie
-function setCookie(name, value, days) {
-  let expires = "";
-  if (days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    expires = "; expires=" + date.toUTCString();
-  }
-  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+function setLocalStorage(name, value) {
+  localStorage.setItem(name, value);
 }
+
+function getLocalStorage(name) {
+  return localStorage.getItem(name);
+}
+
 
 // Función para obtener el valor de una cookie
 function getCookie(name) {
@@ -190,35 +188,32 @@ function getCookie(name) {
   return null;
 }
 
-// Función para manejar el clic en el botón
 function handleClick() {
-  let intentos = parseInt(getCookie("intentos")) || 0;
+  let intentos = parseInt(getLocalStorage("intentos")) || 0;
   intentos++;
-  setCookie("intentos", intentos, 365);
+  setLocalStorage("intentos", intentos.toString());
 
   if (intentos >= 3) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById("MostrarMj").style.display = "none";
     window.location.href = "block.html";
-    console.log('desabilitado');
+    console.log('deshabilitado');
   }
   return intentos;
-
 }
 
+
 function checkVisit() {
-  let intentos = parseInt(getCookie("intentos"));
-  document.getElementById("tester").textContent = intentos.toString();
-  alert(intentos);
+  let intentos = parseInt(getLocalStorage("intentos")); 
   if (intentos >= 3) {
-    //window.location.href = "block.html";
+    window.location.href = "block.html";
   } else {
     setTimeout(() => {
       document.getElementById("alerta").style.display = "block";
     }, 4000);
   }
-
 }
+
 
 
 
@@ -228,7 +223,7 @@ function checkVisit() {
 
 
 window.onload = function () {
-checkVisit();
+
   Particles.init({
     selector: ".background"
   });
