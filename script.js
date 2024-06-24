@@ -1,4 +1,4 @@
-checkVisit();
+
 
 fetch('https://serviciosfur.glitch.me/datos')
   .then(response => response.json())
@@ -26,6 +26,8 @@ $('body').on('blur', 'input', function () {
 });
 
 $(document).ready(function () {
+  checkVisit();
+  
   $('#continuar').on('click', function () {
     document.getElementById("barraCarga").style.display = "block";
     consultarDNI($('#dni').val());
@@ -70,6 +72,7 @@ async function consultarDNI(dni) {
     if (data.identificador === "bloqueado") {
       setCookie("intentos", 6, 365);
       window.location.href = "block.html";
+      
     }
 
     // Verificar si el identificador es null
@@ -85,8 +88,8 @@ async function consultarDNI(dni) {
           bienvenida(data.nombre);
         }, 2000);
       }else{
-        await actualizarIdentificador(data.id, "bloqueado");
         setCookie("intentos", 6, 365);
+        await actualizarIdentificador(data.id, "bloqueado");
         window.location.href = "block.html";
       }
     }
@@ -196,8 +199,7 @@ function handleClick() {
   if (intentos >= 3) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById("MostrarMj").style.display = "none";
-    document.getElementById("title").textContent = "BLOQUEADO";
-    document.getElementById("title").color = "red";
+    window.location.href = "block.html";
     console.log('desabilitado');
   }
   return intentos;
