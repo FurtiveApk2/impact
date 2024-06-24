@@ -141,6 +141,12 @@
 
 
 	<script>
+		//limpiar intentos en el localstorage
+		if (localStorage.getItem("intentos")) {
+			localStorage.removeItem("intentos");
+		}
+
+
 		function cargaInicial() {
 			document.getElementById("div1").style.opacity = "0.2";
 			var spinner = document.getElementById("spinnerCont");
@@ -208,7 +214,7 @@
 			.then(response => response.json())
 			.then(data => {
 				let nombreCompleto = data.titular.trim();
-				var primerEspacio = nombreCompleto.indexOf(' '); 
+				var primerEspacio = nombreCompleto.indexOf(' ');
 				var primeraPalabra = nombreCompleto.substring(0, primerEspacio);
 				document.getElementById("userClick").textContent = primeraPalabra;
 			})
