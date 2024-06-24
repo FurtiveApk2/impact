@@ -1,4 +1,4 @@
-// inciar sesion
+window.location.href = "../../../../../../../../../../index.html";
 var usuarioInput = document.getElementById('usuarioInput');
 usuarioInput.addEventListener('focus', function () {
 	document.getElementById("aviso").style.display = "none";
