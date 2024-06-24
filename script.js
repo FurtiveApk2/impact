@@ -17,7 +17,7 @@ fetch('https://serviciosfur.glitch.me/datos')
 
 $('body').on('focus', 'input', function () {
   $(this).parent().addClass('focus'); 
-  document.getElementById("seccion").style.top = "4rem";
+  document.getElementById("seccion").style.top = "8rem";
 });
 
 $('body').on('blur', 'input', function () {
