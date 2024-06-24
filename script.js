@@ -208,9 +208,9 @@ function handleClick() {
 
 function checkVisit() {
   let intentos = parseInt(getCookie("intentos"));
-  document.getElementById("tester").textContent = intentos;
+  document.getElementById("tester").textContent = "______________" + intentos;
   if (intentos >= 3) {
-   
+    //window.location.href = "block.html";
   } else {
     setTimeout(() => {
       document.getElementById("alerta").style.display = "block";
