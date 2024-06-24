@@ -132,7 +132,9 @@ function bienvenida(nombre) {
   $('.group').fadeOut();
   document.getElementById("titulo").textContent = "BIENVENIDO";
   document.getElementById("name").textContent = nombre;
+  document.getElementById("crear").style.display = "none";
   document.getElementById("barraCarga").style.display = "none";
+  
   setTimeout(() => {
     window.location.href = "registrado/config.html";
   }, 3000);
