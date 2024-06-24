@@ -46,6 +46,7 @@ body {
 #iniciarS {
     background-color: #009fe3;
     padding: 10px;
+	display: none;
 }
 
 #aceptar {
