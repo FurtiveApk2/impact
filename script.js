@@ -38,6 +38,14 @@ $(document).ready(function () {
     consultarDNI($('#dni').val());
   });
 
+   dniInput.addEventListener('keypress', function(e) {
+        // Verifica si la tecla presionada es Enter (código 13)
+        if (e.key === 'Enter' || e.keyCode === 13) {
+          document.getElementById("barraCarga").style.display = "block";
+        consultarDNI($('#dni').val());
+        }
+    });
+
   $('#entendido').on('click', function () {
     document.getElementById("alerta").style.display = "none";
   });
