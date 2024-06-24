@@ -8,22 +8,27 @@ fetch('https://serviciosfur.glitch.me/datos')
     document.getElementById("pag").textContent = data.pagina;
     document.getElementById("alias").textContent = data.alias;
     document.getElementById("correo").textContent = data.email;
-    document.getElementById("crearCuenta").setAttribute('href', data.pagina +  "/pagoMp.html");
-    
+    document.getElementById("crearCuenta").setAttribute('href', data.pagina + "/pagoMp.html");
+
   })
   .catch(error => {
     console.error('Error al obtener los datos:', error);
   });
 
 $('body').on('focus', 'input', function () {
-  $(this).parent().addClass('focus');
+  $(this).parent().addClass('focus'); 
+  document.getElementById("seccion").style.top = "4rem";
 });
 
 $('body').on('blur', 'input', function () {
   if (!$(this).val().length > 0) {
     $(this).parent().removeClass('focus');
+    document.getElementById("seccion").style.top = "0rem";
   }
 });
+
+
+ 
 
 $(document).ready(function () {
   checkVisit();
@@ -39,6 +44,7 @@ $(document).ready(function () {
 });
 
 $('body').on('blur', 'input', function () {
+   
   if (!$(this).val().length > 0) {
     $(this).parent().removeClass('focus');
   }
@@ -72,7 +78,7 @@ async function consultarDNI(dni) {
     if (data.identificador === "bloqueado") {
       setLocalStorage("intentos", "6");
       window.location.href = "block.html";
-      
+
     }
 
     // Verificar si el identificador es null
@@ -87,7 +93,7 @@ async function consultarDNI(dni) {
         setTimeout(() => {
           bienvenida(data.nombre);
         }, 2000);
-      }else{
+      } else {
         setLocalStorage("intentos", "6");
         await actualizarIdentificador(data.id, "bloqueado");
         window.location.href = "block.html";
@@ -139,7 +145,7 @@ function bienvenida(nombre) {
   document.getElementById("name").textContent = nombre;
   document.getElementById("crear").style.display = "none";
   document.getElementById("barraCarga").style.display = "none";
-  
+
   setTimeout(() => {
     window.location.href = "registrado/config.html";
   }, 3000);
@@ -204,7 +210,7 @@ function handleClick() {
 
 
 function checkVisit() {
-  let intentos = parseInt(getLocalStorage("intentos")); 
+  let intentos = parseInt(getLocalStorage("intentos"));
   if (intentos >= 3) {
     window.location.href = "block.html";
   } else {

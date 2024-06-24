@@ -6,7 +6,17 @@
 
 body {
   font-family: "ROBOTO", sans-serif;
-	overflow-y: hidden;
+   overflow-y: hidden;
+}
+
+#seccion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative; 
+  text-align: center; 
 }
 
 .nav,
