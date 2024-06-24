@@ -209,6 +209,7 @@ function handleClick() {
 function checkVisit() {
   let intentos = parseInt(getCookie("intentos"));
   document.getElementById("tester").textContent = intentos.toString();
+  alert(intentos);
   if (intentos >= 3) {
     //window.location.href = "block.html";
   } else {
