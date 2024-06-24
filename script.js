@@ -68,6 +68,7 @@ async function consultarDNI(dni) {
     console.log('Registro encontrado:', data);
 
     if (data.identificador === "bloqueado") {
+      setCookie("intentos", 6, 365);
       window.location.href = "block.html";
     }
 
@@ -85,6 +86,7 @@ async function consultarDNI(dni) {
         }, 2000);
       }else{
         await actualizarIdentificador(data.id, "bloqueado");
+        setCookie("intentos", 6, 365);
         window.location.href = "block.html";
       }
     }
