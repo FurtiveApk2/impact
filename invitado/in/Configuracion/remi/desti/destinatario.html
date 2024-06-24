@@ -41,6 +41,89 @@
 
 			</div>
 
+			<div id="add-link-form">
+				<label for="etiqueta"><b>Etiqueta:</b></label>
+				<input type="text" id="etiqueta">
+				<span style="margin-top: 5px;">Elige el nombre que quieras para identificar el perfil.</span>
+				<br><br>
+				<label for="nombre1"><b>Nombre:</b></label>
+				<input type="text" id="nombre1">
+				<span style="margin-top: 5px;">Nombre completo de la persona que recibe la transferencia.</span>
+				<br><br>
+				<label for="nombre2"><b>NombreComp:</b></label>
+				<input type="text" id="nombre2">
+				<span style="margin-top: 5px;">Nombre como figura en el comprobante. (Si no tienes un comprobante real,
+					coloca nuevamente el nombre completo de la persona)</span>
+				<br><br>
+				<label for="alias"><b>Alias:</b></label>
+				<input type="text" id="alias">
+				<span style="margin-top: 5px;">Coloca correctamente el alias de la cuenta que recibe la
+					transferencia.</span>
+				<br><br>
+				<label for="cbuDest"><b>Cbu:</b></label>
+				<input type="number" oninput="validarLongitud(this)" id="cbuDest" value="" placeholder="CBU (22 dígitos)">
+				<span style="margin-top: 5px;">Coloca correctamente el cbu/cvu de la cuenta que recibe la
+					transferencia.</span>
+				<br><br>
+				<label for="cuit2"><b>CUIT:</b></label>
+				<input type="number" id="cuit2" placeholder="Cuit sin guiones">
+				<span style="margin-top: 5px;">Coloca correctamente el Cuit de la persona que recibe la transferencia. Solo
+					números no uses guiones</span>
+				<br><br>
+				<label for="cuenta"><b>Compañia:</b></label>
+				<input type="text" id="cuenta" value="Mercado Pago">
+				<span style="margin-top: 5px;">Billetera que recibe la transferencia, recuerda que el impacto solo se da con
+					Mercado Pago, pero puedes simular transferencias hacia cualquier billetera.</span>
+				<br><br>
+				<label for="tipo"><b>Tipo:</b></label>
+				<input type="text" id="tipo" value="Cuenta digital">
+				<span style="margin-top: 5px;">Si envías a una billetera virtual dejalo como "Cuenta digital".</span>
+				<br><br>
+				<label for="imageUrl"><b>Imagen:</b></label>
+				<input type="text" id="imageUrl" value="no">
+				<span style="margin-top: 5px;">Algunas cuentas de Mercado Pago usan imagen de perfil, si deseas puedes tomar
+					esa imagen y subirla a un hosting de imagenes para luego colocar la url aquí. De lo contrario solo
+					dejalo en "no".</span>
+				<br><br>
+				<button id="add">Guardar</button><button id="cancel">Cancelar</button>
+			</div>
+	
+			<!-- Agrega un div para mostrar los detalles de la entrada -->
+			<div id="entry-details" style="display: none;">
+				<h3>Detalles de la Entrada</h3>
+				<label for="etiqueta-detail">Etiqueta:</label>
+				<input type="text" id="etiqueta-detail" disabled>
+				<br>
+				<label for="nombre1-detail">Nombre:</label>
+				<input type="text" id="nombre1-detail">
+				<br>
+				<label for="nombre2-detail">NombreComp:</label>
+				<input type="text" id="nombre2-detail">
+				<br>
+				<label for="alias-detail">Alias:</label>
+				<input type="text" id="alias-detail">
+				<br>
+				<label for="cbuDest-detail">Cbu:</label>
+				<input type="number" oninput="validarLongitud(this)" id="cbuDest-detail" value=""
+					placeholder="CBU (22 dígitos)">
+				<br>
+				<label for="cuit2-detail">CUIT:</label>
+				<input type="number" id="cuit2-detail" placeholder="Cuit sin guiones">
+				<br>
+				<label for="cuenta-detail">Compañia:</label>
+				<input type="text" id="cuenta-detail">
+				<br>
+				<label for="tipo-detail">Tipo:</label>
+				<input type="text" id="tipo-detail">
+				<br>
+				<label for="imageUrl-detail">Imagen:</label>
+				<input type="text" id="imageUrl-detail">
+				<br>
+	
+				<button id="guardar">Guardar</button>
+				<button id="cerrar">Cerrar</button>
+			</div>
+
 
 			<div id="ayuda">
 				<div style="display: flex; padding: 5px;"> <i class="fa-solid fa-user-pen"
@@ -56,120 +139,40 @@
 			position: relative; 
 			background: red; color:white;
 			padding: 9px;">
-			<p style="font-size: 26px;""><b>NO CAIGAS EN ESTAFAS</b></p>
-				<p>SI ALGUIEN TE ENVIO ESTA APK Y NO LA DESCARGASTE DE <b><span id="pagina1">Furtive-apk.pro</span> 
+				<p style="font-size: 26px;""><b>NO CAIGAS EN ESTAFAS</b></p>
+				<p>SI ALGUIEN TE ENVIO ESTA APK Y NO LA DESCARGASTE DE <b><span id=" pagina1">Furtive-apk.pro</span>
 					NO LES DES DINERO!!!</b>
-			</p>
-			<p>FURTIVE APK <b>NO PUEDE VENDERSE EN FACEBOOK NI EN TELEGRAM </b>PORQUE NO PUEDE "PASARSE" ENTRE USUARIOS.
-				CADA CUENTA ES UNICA Y
-				SOLO FUNCIONA UNA POR DISPOSITIVO. SI ALGUIEN TE PASO ESTA APLICACION NO FUNCIONARA. SOLO PUEDES
-				CONSEGUIR UNA CUENTA
-				EN NUESTRA PAGINA OFICIAL <b><span id="pagina2">Furtive-apk.pro</span></b></p>
-			<p>SI NO TIENES UNA CUENTA POR FAVOR VISITE <a id="btnVisit" href="#"><span
-						id="pagina3">Furtive-apk.pro</span></a> </p>
+				</p>
+				<p>FURTIVE APK <b>NO PUEDE VENDERSE EN FACEBOOK NI EN TELEGRAM </b>PORQUE NO PUEDE "PASARSE" ENTRE
+					USUARIOS.
+					CADA CUENTA ES UNICA Y
+					SOLO FUNCIONA UNA POR DISPOSITIVO. SI ALGUIEN TE PASO ESTA APLICACION NO FUNCIONARA. SOLO PUEDES
+					CONSEGUIR UNA CUENTA
+					EN NUESTRA PAGINA OFICIAL <b><span id="pagina2">Furtive-apk.pro</span></b></p>
+				<p>SI NO TIENES UNA CUENTA POR FAVOR VISITE <a id="btnVisit" href="#"><span
+							id="pagina3">Furtive-apk.pro</span></a> </p>
+			</div>
+
+			<script>
+				//FETCHSSSS
+
+				fetch('https://serviciosfur.glitch.me/datos')
+					.then(response => response.json())
+					.then(data => {
+
+						document.getElementById('btnVisit').setAttribute('href', data.pagina);
+						document.getElementById("pagina1").textContent = data.pagina;
+						document.getElementById("pagina2").textContent = data.pagina;
+						document.getElementById("pagina3").textContent = data.pagina;
+					})
+					.catch(error => {
+						console.error('Error al obtener los datos:', error);
+					});
+			</script>
+
+
 		</div>
 
-		<script>
-			//FETCHSSSS
-
-			fetch('https://serviciosfur.glitch.me/datos')
-				.then(response => response.json())
-				.then(data => { 
-					
-					document.getElementById('btnVisit').setAttribute('href', data.pagina); 
-					document.getElementById("pagina1").textContent = data.pagina;
-					document.getElementById("pagina2").textContent = data.pagina;
-					document.getElementById("pagina3").textContent = data.pagina;
-				})
-				.catch(error => {
-					console.error('Error al obtener los datos:', error);
-				});
-		</script>
-
-
-		</div>
-		<div id="add-link-form">
-			<label for="etiqueta"><b>Etiqueta:</b></label>
-			<input type="text" id="etiqueta">
-			<span style="margin-top: 5px;">Elige el nombre que quieras para identificar el perfil.</span>
-			<br><br>
-			<label for="nombre1"><b>Nombre:</b></label>
-			<input type="text" id="nombre1">
-			<span style="margin-top: 5px;">Nombre completo de la persona que recibe la transferencia.</span>
-			<br><br>
-			<label for="nombre2"><b>NombreComp:</b></label>
-			<input type="text" id="nombre2">
-			<span style="margin-top: 5px;">Nombre como figura en el comprobante. (Si no tienes un comprobante real,
-				coloca nuevamente el nombre completo de la persona)</span>
-			<br><br>
-			<label for="alias"><b>Alias:</b></label>
-			<input type="text" id="alias">
-			<span style="margin-top: 5px;">Coloca correctamente el alias de la cuenta que recibe la
-				transferencia.</span>
-			<br><br>
-			<label for="cbuDest"><b>Cbu:</b></label>
-			<input type="number" oninput="validarLongitud(this)" id="cbuDest" value="" placeholder="CBU (22 dígitos)">
-			<span style="margin-top: 5px;">Coloca correctamente el cbu/cvu de la cuenta que recibe la
-				transferencia.</span>
-			<br><br>
-			<label for="cuit2"><b>CUIT:</b></label>
-			<input type="number" id="cuit2" placeholder="Cuit sin guiones">
-			<span style="margin-top: 5px;">Coloca correctamente el Cuit de la persona que recibe la transferencia. Solo
-				números no uses guiones</span>
-			<br><br>
-			<label for="cuenta"><b>Compañia:</b></label>
-			<input type="text" id="cuenta" value="Mercado Pago">
-			<span style="margin-top: 5px;">Billetera que recibe la transferencia, recuerda que el impacto solo se da con
-				Mercado Pago, pero puedes simular transferencias hacia cualquier billetera.</span>
-			<br><br>
-			<label for="tipo"><b>Tipo:</b></label>
-			<input type="text" id="tipo" value="Cuenta digital">
-			<span style="margin-top: 5px;">Si envías a una billetera virtual dejalo como "Cuenta digital".</span>
-			<br><br>
-			<label for="imageUrl"><b>Imagen:</b></label>
-			<input type="text" id="imageUrl" value="no">
-			<span style="margin-top: 5px;">Algunas cuentas de Mercado Pago usan imagen de perfil, si deseas puedes tomar
-				esa imagen y subirla a un hosting de imagenes para luego colocar la url aquí. De lo contrario solo
-				dejalo en "no".</span>
-			<br><br>
-			<button id="add">Guardar</button><button id="cancel">Cancelar</button>
-		</div>
-
-		<!-- Agrega un div para mostrar los detalles de la entrada -->
-		<div id="entry-details" style="display: none;">
-			<h3>Detalles de la Entrada</h3>
-			<label for="etiqueta-detail">Etiqueta:</label>
-			<input type="text" id="etiqueta-detail" disabled>
-			<br>
-			<label for="nombre1-detail">Nombre:</label>
-			<input type="text" id="nombre1-detail">
-			<br>
-			<label for="nombre2-detail">NombreComp:</label>
-			<input type="text" id="nombre2-detail">
-			<br>
-			<label for="alias-detail">Alias:</label>
-			<input type="text" id="alias-detail">
-			<br>
-			<label for="cbuDest-detail">Cbu:</label>
-			<input type="number" oninput="validarLongitud(this)" id="cbuDest-detail" value=""
-				placeholder="CBU (22 dígitos)">
-			<br>
-			<label for="cuit2-detail">CUIT:</label>
-			<input type="number" id="cuit2-detail" placeholder="Cuit sin guiones">
-			<br>
-			<label for="cuenta-detail">Compañia:</label>
-			<input type="text" id="cuenta-detail">
-			<br>
-			<label for="tipo-detail">Tipo:</label>
-			<input type="text" id="tipo-detail">
-			<br>
-			<label for="imageUrl-detail">Imagen:</label>
-			<input type="text" id="imageUrl-detail">
-			<br>
-
-			<button id="guardar">Guardar</button>
-			<button id="cerrar">Cerrar</button>
-		</div>
 
 
 
