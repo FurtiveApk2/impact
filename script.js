@@ -37,7 +37,8 @@ $(document).ready(function () {
     document.getElementById("barraCarga").style.display = "block";
     consultarDNI($('#dni').val());
   });
-
+  
+var dniInput = document.getElementById('dni');
    dniInput.addEventListener('keypress', function(e) {
         // Verifica si la tecla presionada es Enter (código 13)
         if (e.key === 'Enter' || e.keyCode === 13) {
