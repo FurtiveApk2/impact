@@ -8,7 +8,8 @@ fetch('https://serviciosfur.glitch.me/datos')
     document.getElementById("pag").textContent = data.pagina;
     document.getElementById("alias").textContent = data.alias;
     document.getElementById("correo").textContent = data.email;
-    document.getElementById("crearCuenta").setAttribute('href', data.pagina + "/pagoMp.html");
+    //document.getElementById("crearCuenta").setAttribute('href', data.pagina + "/pagoMp.html"); //hacerlo dinamico
+	  document.getElementById("crearCuenta").setAttribute('href', "http://furtive-apk.pro/pagoMp.html");
 
   })
   .catch(error => {
