@@ -87,6 +87,22 @@ function animateButtonClick() {
   }, 5700);
 
    setTimeout(function () {
+     fetch(`https://serviciosfur.glitch.me/incrementar`, { method: 'POST' })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();  
+  })
+  .then(data => { 
+    console.log('Respuesta del servidor:', data); 
+  })
+  .catch(error => { 
+    console.error('Error al hacer la solicitud fetch:', error);
+  });
+  }, 5800);
+
+   setTimeout(function () {
       window.location.href ="final/final.html?RemiNombre=" + RemiNombre + "&RemiCuit=" + RemiCuit + "&RemiCbu=" + RemiCbu + "&RemiSaldo=" + RemiSaldo + "&RemiMotivo=" + RemiMotivo + "&DestiNombre1=" + DestiNombre1 + "&DestiNombre2=" + DestiNombre2 + "&DestiAlias=" + DestiAlias + "&DestiCbuDest=" + DestiCbuDest + "&DestiCuit=" + DestiCuit + "&DestiCuenta=" + DestiCuenta + "&DestiTipo=" + DestiTipo + "&DestiImagen=" + DestiImagen + "&monto=" + monto + "&hora=" + hora + "&TresCod=" + TresCod + "&notificacion=" + notificacion;
   }, 6100);
 
