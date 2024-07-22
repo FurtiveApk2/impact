@@ -68,27 +68,27 @@
   </sectio>
   <main class="main">
     <section class="slider" id="tab-svelte">
-      
-        <h1 id="titulo">INICIAR SESIÓN</h1>
-        <h2 id="name" style="font-size: 100%"> </h2><br>
-        <div class="group">
-          <input type="tel" id="dni" pattern="[0-9]*" inputmode="numeric">
-          <label for="dni">DNI</label>
-          <img src="https://icons.veryicon.com/png/o/miscellaneous/simple-and-round-line-mark/down-arrow-56.png" alt=""
-            class="letter">
-          <div class="alert"></div>
-          <div class="sc"></div>
-        </div>
-        <div class="load-bar" id="barraCarga" style="display: none;">
-          <div class="ball"></div>
-          <div class="ball"></div>
-          <div class="ball"></div>
-        </div>
-        <button id="continuar">Continuar</button>
-        <span id="crear" style="margin-top: 5%; color: rgb(3, 218, 198);">¿No tienes una cuenta? <a id="crearCuenta"
-             style="color: inherit;text-decoration: underline;">Consigue una.</a></span>
 
-      
+      <h1 id="titulo">INICIAR SESIÓN</h1>
+      <h2 id="name" style="font-size: 100%"> </h2><br>
+      <div class="group">
+        <input type="tel" id="dni" pattern="[0-9]*" inputmode="numeric">
+        <label for="dni">DNI</label>
+        <img src="https://icons.veryicon.com/png/o/miscellaneous/simple-and-round-line-mark/down-arrow-56.png" alt=""
+          class="letter">
+        <div class="alert"></div>
+        <div class="sc"></div>
+      </div>
+      <div class="load-bar" id="barraCarga" style="display: none;">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
+      <button id="continuar">Continuar</button>
+      <span id="crear" style="margin-top: 5%; color: rgb(3, 218, 198);">¿No tienes una cuenta? <a id="crearCuenta"
+          href="#tab-cuenta" style="color: inherit;text-decoration: underline;">Obtener cuenta.</a></span>
+
+
 
     </section>
 
@@ -97,6 +97,32 @@
       <h2>Entra a echar un vistazo!</h2>
       <button onclick='window.location.href = "invitado/index.html"'>Ingresar</button>
     </section>
+
+    <section class="slider" id="tab-cuenta">
+      <h1 style="margin-bottom: 20%;">OBTENER UNA CUENTA</h1><br>
+      
+      <div style="text-align: left; color:#03dac6">
+        <p>1- Realiza una donación de <b><span id="importeImp" style="color:white">$45000</span><span style="color:white">,00</span></b> al siguiente destinatario.</p><br>
+        <p style="text-indent: 0px;"><u>Titular:</u> <b><span id="titu2"></span></b></p>
+        <p style="text-indent: 0px;"><u>Alias:</u> <b><span id="alias2"></span></b>
+          <button class="copiar-boton" onclick="copiarTexto('alias')"><i class="fas fa-copy icono-copiar"></i></button>
+        </p>
+        <p style="text-indent: 0px;"><u>CBU:</u> <b><span id="cbu"></span></b>
+          </span> <button class="copiar-boton" onclick="copiarTexto('cbu')"><i
+              class="fas fa-copy icono-copiar"></i></button>
+        </p>
+      
+        <br><p>2- Envía un email con el comprobante a <b><span id="email2" style="color:white">furtive</span></b></p><br> 
+          <p>Por defecto, se utiliza
+        el número de DNI de la persona que realizó la donación, pero si deseas acceder a tu cuenta con una clave diferente, puedes especificarlo
+      en este email.</p>
+
+      </div>
+      
+      <button onclick='window.location.href = "#tab-svelte"' style="margin-top: 20%;">Iniciar Sesión</button>
+    </section>
+
+
   </main>
 
   <div id="intentos" style="display: none;">

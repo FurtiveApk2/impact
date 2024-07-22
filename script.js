@@ -8,13 +8,45 @@ fetch('https://serviciosfur.glitch.me/datos')
     document.getElementById("pag").textContent = data.pagina;
     document.getElementById("alias").textContent = data.alias;
     document.getElementById("correo").textContent = data.email;
-    //document.getElementById("crearCuenta").setAttribute('href', data.pagina + "/pagoMp.html"); //hacerlo dinamico
-    //document.getElementById("crearCuenta").setAttribute('href', "http://furtive-apk.pro/pagoMp.html");
+    document.getElementById("titu2").textContent = data.titular;
+    document.getElementById("cbu").textContent = data.cbu;
+    document.getElementById("alias2").textContent = data.alias;
+    document.getElementById("email2").textContent = data.email;
+ 
 
   })
   .catch(error => {
     console.error('Error al obtener los datos:', error);
   });
+
+  function copiarTexto(idElemento) {
+    var textoACopiar = document.getElementById(idElemento).innerText;
+    var elementoTemporal = document.createElement("textarea");
+    elementoTemporal.value = textoACopiar;
+    document.body.appendChild(elementoTemporal);
+    elementoTemporal.select();
+    document.execCommand("copy");
+    document.body.removeChild(elementoTemporal);
+    mostrarMensaje("Copiado!");
+  }
+
+  function mostrarMensaje(mensaje) {
+    var mensajeDiv = document.createElement("div");
+    mensajeDiv.textContent = mensaje;
+    mensajeDiv.style.backgroundColor = "#28a745";
+    mensajeDiv.style.color = "#fff";
+    mensajeDiv.style.padding = "10px 15px";
+    mensajeDiv.style.borderRadius = "5px";
+    mensajeDiv.style.position = "fixed";
+    mensajeDiv.style.bottom = "20px";
+    mensajeDiv.style.right = "20px";
+    mensajeDiv.style.zIndex = "9999";
+    document.body.appendChild(mensajeDiv);
+
+    setTimeout(function () {
+      document.body.removeChild(mensajeDiv);
+    }, 3000); // Ocultar el mensaje después de 3 segundos
+  }
 
 $('body').on('focus', 'input', function () {
   $(this).parent().addClass('focus'); 
@@ -32,7 +64,8 @@ $('body').on('blur', 'input', function () {
  
 
 $(document).ready(function () {
-  document.getElementById("crearCuenta").addEventListener("click", ()=>{window.location.href = "http://furtive-apk.pro/pagoMp.html"});
+	 
+	
   checkVisit();
 
   $('#continuar').on('click', function () {
@@ -40,7 +73,7 @@ $(document).ready(function () {
     consultarDNI($('#dni').val());
   });
   
-var dniInput = document.getElementById('dni');
+  var dniInput = document.getElementById('dni');
    dniInput.addEventListener('keypress', function(e) {
         // Verifica si la tecla presionada es Enter (código 13)
         if (e.key === 'Enter' || e.keyCode === 13) {
@@ -167,8 +200,8 @@ function mostrarMensaje(mensaje) {
   var mensajeDiv = document.createElement("div");
   mensajeDiv.id = "MostrarMj";
   mensajeDiv.textContent = mensaje;
-  mensajeDiv.style.backgroundColor = "rgb(232, 40, 40)";
-  mensajeDiv.style.color = "#fff";
+  mensajeDiv.style.backgroundColor = "#25df39";
+  mensajeDiv.style.color = "black";
   mensajeDiv.style.padding = "10px 15px";
   mensajeDiv.style.borderRadius = "5px";
   mensajeDiv.style.position = "fixed";
@@ -374,7 +407,12 @@ new NavigationPage();
 
 
 
-
-
-
-
+fetch("https://dolarapi.com/v1/dolares/blue")
+.then(response => response.json())
+.then(data => {
+  let dolar = parseInt(data.venta, 10);
+  let EnPesosImp = Math.ceil(dolar * 34.5);
+ // EnPesosImp = EnPesosImp.toLocaleString('es-ES', { minimumFractionDigits: 0 });
+  document.getElementById("importeImp").textContent = "$" + EnPesosImp;
+ 
+});
