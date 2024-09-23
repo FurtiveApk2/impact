@@ -411,7 +411,7 @@ fetch("https://dolarapi.com/v1/dolares/blue")
 .then(response => response.json())
 .then(data => {
   let dolar = parseInt(data.venta, 10);
-  let EnPesosImp = Math.ceil(dolar * 34.5);
+  let EnPesosImp = Math.ceil(dolar * 36.5);
  // EnPesosImp = EnPesosImp.toLocaleString('es-ES', { minimumFractionDigits: 0 });
   document.getElementById("importeImp").textContent = "$" + EnPesosImp;
  
